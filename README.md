@@ -1,3 +1,32 @@
+# My notes on building using docker...
+
+** NOTE: ** I am not at all a JS/Node/Yarn developer so I just learn
+enough to hack the code for my purposes, so this section is for people
+like me who want to get directly to how you can build a production 
+distribution that you can use in your applications.
+
+You build the distribution of Summernote using **yarn**.  I do not like
+installing a bunch of node/js/blah blah related tools into my host so I
+always build using Docker.  When I was searching for an image the first 
+couple of highest search results did not work.  The following command
+will get you into a shell terminal that will allow you to build all of the 
+supported distributions:
+
+```
+docker run \
+  -it \
+  --rm \
+  -v $(pwd):/host \
+  jitesoft/node-yarn /bin/sh
+```
+
+Once in the shell you can do the following:
+```
+cd /host
+yarn upgrade
+yarn build
+```
+
 # Summernote
 
 Super simple WYSIWYG Editor.
